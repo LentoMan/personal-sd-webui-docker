@@ -37,6 +37,7 @@ echo ""
 
 echo Making bash scripts user-executable.
 chmod u+x *.sh
+chmod u+x docker/webui/docker-entrypoint.sh
 
 echo Writing user id to file \"user.env\" for docker file system binding.
 echo UID=$(id -u) > user.env
