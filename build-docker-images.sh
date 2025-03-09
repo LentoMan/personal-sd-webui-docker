@@ -15,4 +15,4 @@ echo "Docker images has been built."
 echo ""
 
 echo "You may now launch the webui with internet enabled to complete the setup:"
-echo "./run-with-internet"
+echo "./run-with-internet.sh"
