@@ -1,0 +1,6 @@
+networks:
+  sd-webui-external-network:
+    driver: bridge
+  sd-webui-internal-network:
+    driver: bridge
+    internal: true # Internal network with no external (internet) access

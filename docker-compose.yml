@@ -1,0 +1,23 @@
+include:
+  - docker-compose.networks.yml
+services:
+  offline-sd-webui:
+    environment:
+      OFFLINE_MODE: true
+    extends:
+      file: docker-compose.base.yml
+      service: sd-webui
+    depends_on:
+      - sd-webui-tunnel
+    networks:
+      - sd-webui-internal-network
+  sd-webui-tunnel:
+    build:
+      dockerfile: docker/tunnel/Dockerfile
+    image: sd_web_ui_tunnel
+    ports:
+      - "${WEBUI_PORT}:${WEBUI_PORT}"
+    networks:
+      - sd-webui-external-network
+      - sd-webui-internal-network
+    command: [ "socat", "tcp-listen:${WEBUI_PORT},reuseaddr,fork", "tcp:offline-sd-webui:${WEBUI_PORT}" ]
