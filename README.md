@@ -38,7 +38,9 @@ Once the webui has finished downloading and you have made sure it works properly
 ./run-offline.sh
 ```
 
-Note that some actions like **interrogate clip** may require online access the first time to download all the models and other requirements. 
+**Note that offline mode does not offer complete privacy and your browser may still leak data through javascript, see the [browser safety section](#browser-safety) for potential workarounds.**
+
+Also note that some actions like **interrogate clip** may require online access the first time to download all the models and other requirements. 
 
 Installing and updating extensions will naturally also require launching with internet:
 ```bash
@@ -61,6 +63,28 @@ When switching to a new webui for the first time, you must launch with internet 
 ```bash
 ./run-with-internet.sh
 ```
+
+### Browser safety
+Depending on the server configuration, your browser may still leak data through javascript, an easy fix is to use Firefox with the `Work Offline` option. After starting Firefox, press `Alt` or `F10`, then select `Work Offline` from the file menu. You will still be able to access localhost but there should be no external internet access. You may also want to open developer mode with `F12` to monitor the **Console** and **Network** tabs for potential issues when working offline. Some remote dependencies may be loaded from content delivery networks, but can often be cached before working offline.
+
+Also consider launching a separate Firefox profile which always runs in offline mode.
+
+If you are using Windows, place a shortcut to Firefox on your desktop or duplicate the existing shortcut, rename the copy to `altprofile`. Right click the `altprofile` shortcut and open the properties, change the target to something like:
+```
+"C:\Program Files\Mozilla Firefox\firefox.exe" -profile "E:\altprofile" -no-remote -offline
+```
+
+The `-no-remote` option is important, it allows you to use multiple profiles like your **default profile** and your **altprofile** independently at the same time in different windows. Launch the **altprofile** shortcut and make sure it starts offline. You may now also want to disable any diagnostics, telemetry and crash reports in the Firefox security settings for your alternative profile.
+
+The new profile should be hidden from the profilemanager, but in case your default firefox profile no longer opens as default, open the profilemanager and set it as default without asking using:
+```
+"C:\Program Files\Mozilla Firefox\firefox.exe" -profilemanager
+```
+
+**Do not delete any profiles in the profilemanager as it may delete your default profile along with the actual profile you wanted to delete.**
+
+Some alternative options to explore would be using a firewall or configuring a proxy.
+
 
 ## Future Plans
 
