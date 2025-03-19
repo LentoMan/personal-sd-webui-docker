@@ -11,7 +11,7 @@ Privacy focused local docker environment for Stable Diffusion Web UIs with offli
 
   - Cuda / Nvidia GPU
   - Linux or [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install)
-  - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Recommended) **OR** [Docker](https://docs.docker.com/engine/install/) + [Docker Compose plugin](https://docs.docker.com/compose/install/)
+  - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Recommended) **or** [Docker](https://docs.docker.com/engine/install/) + [Docker Compose plugin](https://docs.docker.com/compose/install/)
 
 
 ## Installation
@@ -110,7 +110,7 @@ When running in offline mode, a communication attempt with the outside world is 
 
 ### Bind mounts
 
-The external webui directory is mounted into the container with a bind mount, this means you can access easily access and modify all source code and data from outside the container. 
+The external webui directory is mounted into the container with a bind mount, this means you can easily access and modify all source code and data from outside the container. 
 
 To make sure files and directories created inside the container gets the proper external user id, the id of your external user is set in the `user.env` file as the `setup.sh` script runs. Your external user id is then read from the `user.env` during container startup and set for the `ubuntu` user inside the container.
 
