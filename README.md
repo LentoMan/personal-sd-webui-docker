@@ -67,9 +67,9 @@ When switching to a new webui for the first time, you must launch with internet 
 ### Browser safety
 Depending on the server configuration, your browser may still leak data through javascript, an easy fix is to use Firefox with the `Work Offline` option. After starting Firefox, press `Alt` or `F10`, then select `Work Offline` from the file menu. You will still be able to access localhost but there should be no external internet access. You may also want to open developer mode with `F12` to monitor the **Console** and **Network** tabs for potential issues when working offline. Some remote dependencies may be loaded from content delivery networks, but can often be cached before working offline.
 
-Also consider launching a separate Firefox profile which always runs in offline mode.
+When using offline mode, you may run into browser issues with things like dropdowns not updating with latest added models etc., consider turning off disk cache or clearing browser cache if that happens. It may be a good idea to create a separate Firefox profile without disk cache which always starts in offline mode.
 
-If you are using Windows, place a shortcut to Firefox on your desktop or duplicate the existing shortcut, rename the copy to `altprofile`. Right click the `altprofile` shortcut and open the properties, change the target to something like:
+To create a separate profile, if using Windows, place a shortcut to Firefox on your desktop or duplicate the existing shortcut, rename the copy to `altprofile`. Right click the `altprofile` shortcut and open the properties, change the target to something like:
 ```
 "C:\Program Files\Mozilla Firefox\firefox.exe" -profile "E:\altprofile" -no-remote -offline
 ```
@@ -83,7 +83,9 @@ The new profile should be hidden from the profilemanager, but in case your defau
 
 **Do not delete any profiles in the profilemanager as it may delete your default profile along with the actual profile you wanted to delete.**
 
-Some alternative options to explore would be using a firewall or configuring a proxy.
+To turn of disk cache, enter `about:config` in the url bar and accept the risk. Next, search for `browser.cache.disk.enable` and toggle it to false. To verify that the setting is applied, enter `about:cache` in the url bar. The **Storage disk location** should now say "**none, only stored in memory**".
+
+Some alternative options to explore could be using a firewall or configuring a proxy for your browser.
 
 
 ## Future Plans
