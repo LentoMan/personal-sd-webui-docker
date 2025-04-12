@@ -38,7 +38,7 @@ Once the webui has finished downloading and you have made sure it works properly
 ./run-offline.sh
 ```
 
-**Note that offline mode does not offer complete privacy as your browser could still leak data through javascript, see the section on [browser safety](https://github.com/LentoMan/personal-docker-docs/blob/main/browser-safety.md) in the [supplementary documentation](#supplementary-documentation) for workarounds.**
+**Note that offline mode does not offer complete privacy as your browser could still leak data through javascript, see the section on [browser safety](https://github.com/LentoMan/personal-docker-docs/blob/main/browser-safety.md) in the [supplementary documentation](https://github.com/LentoMan/personal-docker-docs) for workarounds.**
 
 Also note that some actions like **interrogate clip** may require online access the first time to download all the models and other requirements. 
 
